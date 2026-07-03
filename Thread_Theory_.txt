@@ -1,0 +1,210 @@
+Working of an operating system
+What is multitasking in Java
+Time-sharing process in CPU
+What are threads in Java?
+Multithreading in Java
+
+
+#1
+When you run an application, the software that you have written will be running on an OS( Operating System).
+Below the OS, a layer is present that is known as Hardware.
+Software will always run on hardware.
+Hardware consists of:
+ RAM - acts as a temporary memory for processing
+ CPU - that executes something (processing done here)
+OS supports multiple software working at the same time and it means it supports Multitasking.
+Multitasking:
+Multitasking is the ability of the CPU to perform multiple tasks simultaneously. There will be continuous context switching of the CPU between the tasks.
+CPU has a concept of time sharing which means each process runs for some short period of time one by one. The software runs parallelly by sharing the time in the CPU. 
+
+#2
+We can also divide our tasks into small units.
+In the same task or a program, we can have multiple threads running at the same time.
+Thread is light-weight and it is the smallest unit of a task. 
+Multithreading:-
+Multithreading is a system in which many threads are created from a process through which the computer power is increased. 
+
+
+
+#Lecture 2
+
+In this lecture we will learn:
+Multiple Threads in Java
+How to create a thread?
+How we can do parallel programming?
+start() and run() methods in multithreading
+Time-sharing between multiple threads
+
+
+#1
+When you build an application, we use certain frameworks and behind the scene, these frameworks will create threads.
+Every statement runs in a sequence in the main method.
+If you want to execute two behaviours to execute at the same time, then we can use threads.
+We can not execute normal objects in multiple threads or normal objects can not be executed simultaneously.
+
+#2
+Java provides a Thread class to achieve thread programming. The thread class provides constructors and methods to create and perform operations on a thread.
+A thread can be created by extending the thread class. The thread class can be extended through the Thread keyword.
+By using the Thread keyword with class, it will not create a new thread.
+
+#3
+We have to use the start() method in the main to start the execution of a new thread.
+start() is a method that is present inside the thread class. start() method only calls the run method.
+Start() invokes the run() method on the Thread object.
+run method should be present inside every thread to start a new thread.
+run() method is used to do an action for a thread.
+
+#4
+All threads cannot run at the same time, so threads go for the time sharing.
+-In this time-sharing Operating system, many processes are allocated with computer resources in respective time slots. 
+Scheduler is responsible to allow which thread to execute at what time. 
+
+
+
+
+#Lecture 3 :
+
+#1
+We cannot control the schedular, we can only give suggestions to it to give priority.
+getPriority() is a method that gives the current priority of a thread.
+The range of priority goes from 1 to 10. One is the least priority whereas ten is the maximum priority.
+5 is the default priority or normal priority. By default, every thread has a normal priority which is 5.
+We can also change the priority by using the setPriority().
+Different schedulers have different algorithms to work upon so by giving priority, we can only give suggestions to it. 
+It might be possible that the scheduler gives the highest priority to the process that will execute in less time at the running phase.
+
+#2
+We can also make a thread to wait for some time and then execute the statement further.
+Thread will wait by using the sleep() method.
+In the sleep() method, we have the pass value for how much time we want a thread to wait. The time will be in milliseconds.
+Sleep() method will throw an interrupted exception. So, we can handle an exception by using the try-catch block.
+When we use sleep(), then the thread goes into the waiting state.
+
+As a programmer, we can not control a thread, we can only optimise it.
+
+high=10;
+medim=5
+low=1
+
+
+# Lecture 4:
+
+n this lecture we will learn:
+Using thread through Runnable interface
+How to start a thread with a Runnable interface
+Difference between extending a thread and implementing a runnable interface
+Use of anonymous class with runnable interface
+Creating a thread with lambda expression
+
+
+#1
+Multiple Inheritance is not supported by Java. So, extending a thread is not a good practice to follow.
+Thread is a class that implements Runnable and Runnable contains a method known as the run() method.
+Instead of extending a thread, we can also implement it through an interface called Runnable.
+ class A implements Runnable
+ {
+  public void run()
+  {
+   statements;
+  }
+ }
+
+#2
+In the Runnabe method, the start() method is not present so we can not use it by implementing Runnable simply.
+Thread has multiple constructors and one of the constructors takes a runnable object.
+We cannot create an object of a thread by using a class name.
+Objects for a thread will be created by using a Runnable keyword. So, we create a reference of an interface and an object of a class
+e.g., Runnable obj= new A();
+We have to pass a reference to an object in the thread class.
+After creating a reference of the Runnable class, we can use the start() method with the thread.
+
+#3
+We can create a thread by using two methods:
+ 1. Extend a thread class
+ 2. Implement a Runnable interface
+The runnable interface does not have thread methods, in that case, we need to create a separate thread object to use features.
+
+#4 
+We can also instantiate a runnable interface by using an anonymous class.
+Runnable is a functional interface so we also use lambda expression with it.
+
+
+ # Lecture 5:
+ In this lecture we will learn:
+What are threads and mutations?
+Thread safe in Java
+Use of join() method in threads
+What is synchronization?
+Race condition in java
+
+
+#1 
+Threads and Mutations:
+Threads are useful when you want to execute multiple things at the same time.
+Most of the time, threads are created by the framework itself.
+Threads are used when you want to make things faster.
+
+Mutations simply mean that you can change something.
+Primitive type variables and primitive type objects are mutations as their value can be changed.
+Strings are immutable as we cannot change their value of it.
+Use of threads and mutations at the same time is not good, as it creates instability in the code.
+
+
+#2 
+Thread Safe:
+Thread safe means that only one thread will work at one point.
+When a thread is already working on an object and preventing another thread from working on the same object, this process is called Thread-Safety.
+If we have two threads and each thread is calling increment thousand times, then increment will be called two thousand times.
+For the above case, every time you run the code you will get a different output for this.
+This happens because the main method prints the value of the count at any moment of time, it does not wait for threads to execute completely and come back to the main method.
+If the main method waits for threads to execute and to come back after completion, then it gives nearby correct output.
+
+#3 
+join method and synchronized keyword:
+join() is a method that allows the main method to wait for the other threads to come back and join.
+join through an exception so we have to handle it by using throws Interruption.
+If both threads go to the method at the same time then it might be possible that they will be lost some of the values in between.
+The above problem will be resolved by using the synchronized keyword.
+By using the synchronized, java ensures that the method will be called by only one method at a time to handle instability in code.
+So, if a thread is working with the synchronized method, then the other thread has to wait to work with that method until the first thread gets completed.
+Synchronization in java is the capability to control the access of multiple threads to any shared resource. 
+
+#4 
+Race condition:
+Synchronization helps to prevent the race condition.
+Race condition is a condition in which the critical section (a part of the program where shared memory is accessed) is concurrently executed by two or more threads. It leads to incorrect behaviour of a program.
+
+
+# Lecture No 06:
+In this lecture we will learn:
+Different states of a thread
+Method used for each state of a thread
+Flow chart diagram of a thread cycle
+Difference between Runnable and Running state
+
+
+#1
+Every time you create a new thread that goes into a new state.
+When you start a thread, it goes into the Runnable state.
+When the thread is executing and then it is waiting for the schedular, it is in a runnable state.
+When the thread is actually running on a CPU, it is in a Running state.
+The thread executes with the help of the run() method in a running state.
+A thread goes in the running state only when it gets informed by the schedular to get executed.
+The thread can be held with the help of the sleep() or wait() method, then will go into the waiting state.
+With the use of notify() method, the thread goes to the Runnable state from the waiting state.
+You can stop the execution of a thread by using a stop() method, and then it will go into the Dead State.
+When the work of a thread gets over, then it will go into the dead state automatically.
+
+
+#2
+  start()    notify()
+New -----------} Runnable  {------------
+    | |         |  
+    | |run()        |
+    | |         |
+    |Runnning ----------}Waiting
+    | |  sleep() or wait()
+    | |
+    | |__stop()____Dead
+    |_______________|
+      stop()
