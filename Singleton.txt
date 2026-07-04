@@ -1,0 +1,34 @@
+ # Lecture No : 1
+The singleton pattern is implemented by creating a class with a method that creates a new instance of the class if one does not exist. 
+
+If an instance already exists, it simply returns a reference to that object. 
+
+To make sure that the object cannot be instantiated any other way, the constructor is made private.
+
+
+#Lecture No :2
+
+Single class is responsible to create single object. Without instantiate the object of class the class can access object.
+A single class have private constructorand static instance. In Lazy Instantiation singleton pattern creates the instance in the global access method.
+
+
+
+#Lecture No : 3
+
+A thread-safe singleton class is to make the global access method synchronized. 
+Using this concept, a single thread can execute this method at a time. 
+If you want huge amount of work to be done using getInstance method then,
+ it will decreased your system performance by factor of 100. 
+To solve this problem we can use "double checked locking".
+
+#lecture No :4
+
+Double check locking is used to ensure that only one instance of singleton class is created.
+This means we checked object is null two times that :
+1) Simply check for object has already been initialized. If yes then apply second way. 
+2) Inside synchronized block again check for object has already been initialized.
+
+#lecture No:5
+enum is the best way to create Singleton Design Pattern 
+Serialzation and thread-safety guaranteed.
+Java ensures that any enum value is instantiated only once in a Java program. 'enum' is special type of class.

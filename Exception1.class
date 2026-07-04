@@ -1,0 +1,15 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+public class Exception1 {
+   public Exception1() {
+   }
+
+   public static void main() {
+      try {
+         int var0 = 10 / 0;
+         IO.println(var0);
+      } catch (Exception var1) {
+         System.out.println("welcome");
+      }
+
+   }
+}
