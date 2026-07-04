@@ -6,16 +6,25 @@ public class Jdbc1 {
         String uri="jdbc:mysql://localhost:3306/studentdb";
         String uname="root";
         String pass="";
+
         Class.forName("com.mysql.cj.jdbc.Driver");
+       
 
         Connection con = DriverManager.getConnection(uri,uname,pass);
         Statement st = con.createStatement();
        
         ResultSet rs =  st.executeQuery("select * from student");
-        rs.next();
+        
+       while( rs.next())
+       
+        {    
+        System.out.println(rs.getInt("id"));
+        System.out.println(rs.getString("name"));
+        }
 
-        System.out.println(rs.getInt(1));
-        System.out.println(rs.getString(2));
+        rs.close();
+        st.close();
+        con.close();
 
     }
     
