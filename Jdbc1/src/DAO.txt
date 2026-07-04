@@ -1,0 +1,17 @@
+# Lecture 1:
+
+In computer software, a data access object (DAO) is an object that provides an abstract interface to some type of database or other persistence mechanism. 
+
+By mapping application calls to the persistence layer, DAO provide some specific data operations without exposing details of the database.
+
+JDBC is a Java database connectivity technology (Java Standard Edition platform) from Oracle Corporation. 
+
+This technology is an API for the Java programming language that defines how a client may access a database. 
+
+It provides methods for querying and updating data in a database.
+
+
+#Lecture 2
+n computer software, a data access object (DAO) is an object that provides an abstract interface to some type of database or other persistence mechanism. 
+
+In this video we create a method and we create a insert method on that method.when you go to insert query in JDBC don't go for statement go for prepared statement. Then repeated JDBC 7 steps .we create a method for connection.when you fire a insert query then necessary to fire execute query.
